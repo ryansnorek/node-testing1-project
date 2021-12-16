@@ -38,12 +38,13 @@ function trimPropertiesMutation(obj) {
  * findLargestInteger([{ integer: 1 }, { integer: 3 }, { integer: 2 }]) // returns 3
  */
 function findLargestInteger(integers) {
-  let result = integers[0].integers
+  let result = 0
   for (let i in integers) {
     if (integers[i].integer > result) {
       result = integers[i].integer
     }
   }
+  return result
 }
 
 class Counter {
@@ -69,7 +70,7 @@ class Counter {
    */
   countDown() {
     if (this.count > 0) {
-      this.count--
+      return this.count--
     }
     return this.count
   }
@@ -167,7 +168,9 @@ class Car {
     } else {
       this.tank = this.tankSize
     }
+    return this.tank * this.mpg
   }
+  
 }
 
 /**
@@ -184,7 +187,10 @@ class Car {
  * })
  */
 function isEvenNumberAsync(number) {
-  // ✨ implement
+  if (number % 2 === 0) {
+    return Promise.resolve(true)
+  }
+  return Promise.resolve(false)
 }
 
 module.exports = {

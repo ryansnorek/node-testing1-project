@@ -43,20 +43,20 @@ describe('[Exercise 4] Counter', () => {
     counter = new utils.Counter(3) // each test must start with a fresh couter
   })
   test('[6] the FIRST CALL of counter.countDown returns the initial count', () => {
-    expect(counter.countdown()).toBe(3)
+    expect(counter.countDown()).toBe(3)
   })
   test('[7] the SECOND CALL of counter.countDown returns the initial count minus one', () => {
-   counter.countdown()
-   expect(counter.countdown()).toBe(2)
+   counter.countDown()
+   expect(counter.countDown()).toBe(2)
   })
   test('[8] the count eventually reaches zero but does not go below zero', () => {
-    counter.countdown()
-    counter.countdown()
-    counter.countdown()
-    counter.countdown()
-    counter.countdown()
-    counter.countdown()
-    expect(counter.countdown()).toBe(0)
+    counter.countDown()
+    counter.countDown()
+    counter.countDown()
+    counter.countDown()
+    counter.countDown()
+    counter.countDown()
+    expect(counter.countDown()).toBe(0)
   })
 })
 
@@ -84,7 +84,7 @@ describe('[Exercise 5] Seasons', () => {
     expect(seasons.next()).toBe("spring")
   })
   test('[13] the FIFTH call of seasons.next returns again "summer"', () => {
-    for (let i = 1; i < 4; i++) {
+    for (let i = 1; i < 5; i++) {
       seasons.next()
     }
     expect(seasons.next()).toBe("summer")
@@ -128,10 +128,12 @@ describe('[Exercise 6] Car', () => {
 })
 
 describe('[Exercise 7] isEvenNumberAsync', () => {
-  test('[19] resolves true if passed an even number', () => {
-
+  test('[19] resolves true if passed an even number', async () => {
+    const result = await utils.isEvenNumberAsync(2)
+    expect(result).toBe(true)
   })
-  test('[20] resolves false if passed an odd number', () => {
-
+  test('[20] resolves false if passed an odd number', async () => {
+    const result = await utils.isEvenNumberAsync(3)
+    expect(result).toBe(false)
   })
 })
